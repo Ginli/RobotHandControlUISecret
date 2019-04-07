@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  .bg-dark {
+    background-color: aliceblue !important;
+  }
+
+  .detail-title {
+    color: brown;
+  }
+
+  #ui-header {
+    font-size: xx-large;
+    color: darkslategrey;
+    text-align: center;
+  }
+</style>
+</head>
+
+<body class="bg-dark">
+  <nav id="ui-header">机器手控制界面</nav>
+  <div id="row-1">
+    <div id="sliders" style="float: right">
+      <h2 class="detail-title">机器手控制中心</h2>
+    </div>
+    <div id="serial-receive" style="float: right; margin-right: 20px">
+      <h2 class="detail-title">串口接收关节数据显示区</h2>
+    </div>
+    <div id="urdf">
+      <h2 class="detail-title">机器手模型显示区</h2>
+    </div>
+  </div>
+  <div id="row-2">
+    <div id="hand-posture">
+      <h2 class="detail-title" style="display: inline-block">手势按钮</h2>
+      <button onclick="handPosture_1()">手势“一”</button>
+      <button onclick="handPosture_2()">手势“二”</button>
+      <button onclick="handPosture_3()">手势“三”</button>
+      <button onclick="handPosture_4()">手势“四”</button>
+      <button onclick="handPosture_5()">手势“五”</button>
+      <button onclick="handPosture_6()">手势“六”</button>
+      <button onclick="handPosture_ok()">手势“OK”</button>
+    </div>
+  </div>
+</body>
+<!--jQuery library-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="../build/three.min.js"></script>
+<script src="../build/ColladaLoader2.js"></script>
+<script src="../build/STLLoader.js"></script>
+<script src="../build/eventemitter2.js"></script>
+<script src="../build/roslib.min.js"></script>
+<script src="../build/ros3d.min.js"></script>
+<script src="../build/jointstatepublisher.js"></script>
+<script src="../build/serial_receiver.js"></script>
+<script src="../build/hand_posture.js"></script>
+<script>
+  /**
+   * Setup all visualization elements when the page is loaded.
+   */
+  $(document).ready(function() {
+    var topic;
+    // Connect to ROS.
+    var ros = new ROSLIB.Ros({
+      //url : 'ws://localhost:9090'
+      url: 'http://10.0.0.10:9090'
+    });
+
+    // Create the main viewer.
+    var viewer = new ROS3D.Viewer({
+      divID : 'urdf',
+      width : 800,
+      height : 600,
+      antialias : true
+    });
+
+    // Add a grid.
+    viewer.addObject(new ROS3D.Grid());
+
+    // Setup a client to listen to TFs.
+    var tfClient = new ROSLIB.TFClient({
+      ros : ros,
+      angularThres : 0.01,
+      transThres : 0.01,
+      rate : 10.0,
+      fixedFrame : '/base_link'
+    });
+
+    // Setup the URDF client.
+    var urdfClient = new ROS3D.UrdfClient({
+      ros : ros,
+      tfClient : tfClient,
+      rootObject : viewer.scene,
+      path : 'http://10.0.0.10:80/~ginli/robot_hand_3/',
+      loader : ROS3D.COLLADA_LOADER_2,
+
+    });
+        
+    var jsp = new JOINTSTATEPUBLISHER.JointStatePublisher({
+        ros : ros,
+        divID : 'sliders'
+    });
+       
+    var serialReceiver = SerialReceiver({ros: ros});
+
+  });
+</script>
+</html>

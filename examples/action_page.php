@@ -1,0 +1,20 @@
+<?php 
+  session_start();
+
+  if(!isSet($_GET['uname']) || !isSet($_GET['psw'])) {
+    header("Location:login.php");
+  } else {
+    $credentials = json_decode(file_get_contents("/home/ginli/catkin_ws/src/hand2/creds/cred.json"), true);
+    $input_cred = ['username' => $_GET['uname'], 'password' => $_GET['psw']];
+
+    if (in_array($input_cred, $credentials)) {
+      $_SESSION['last_acted_on'] = time();
+      header("Location:index.php");
+    } else {
+      header("Location:invalid.php");
+    }
+
+  }
+
+
+?>

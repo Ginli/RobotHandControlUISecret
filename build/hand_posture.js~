@@ -1,0 +1,216 @@
+function handPosture_1() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 0.858;
+	document.getElementById("2.3_Joint_slider").value = 0.858;
+	document.getElementById("2.5_Joint_slider").value = 0.858;
+
+	document.getElementById("3.1_Joint_slider").value = 1.053;
+	document.getElementById("3.3_Joint_slider").value = 1.053;
+	document.getElementById("3.5_Joint_slider").value = 1.053;
+
+	document.getElementById("4.1_Joint_slider").value = 1.183;
+	document.getElementById("4.3_Joint_slider").value = 1.183;
+	document.getElementById("4.5_Joint_slider").value = 1.183;
+
+	document.getElementById("0.1_Joint_slider").value = 1.04;
+
+	document.getElementById("0.3_Joint_slider").value = 1.157;
+	document.getElementById("0.5_Joint_slider").value = 1.157;
+	document.getElementById("0.7_Joint_slider").value = 1.157;
+
+	triggerChanges();
+}
+
+function handPosture_2() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 0;
+	document.getElementById("2.3_Joint_slider").value = 0;
+	document.getElementById("2.5_Joint_slider").value = 0;
+
+	document.getElementById("3.1_Joint_slider").value = 1.053;
+	document.getElementById("3.3_Joint_slider").value = 1.053;
+	document.getElementById("3.5_Joint_slider").value = 1.053;
+
+	document.getElementById("4.1_Joint_slider").value = 1.183;
+	document.getElementById("4.3_Joint_slider").value = 1.183;
+	document.getElementById("4.5_Joint_slider").value = 1.183;
+
+	document.getElementById("0.1_Joint_slider").value = 1.04;
+
+	document.getElementById("0.3_Joint_slider").value = 1.157;
+	document.getElementById("0.5_Joint_slider").value = 1.157;
+	document.getElementById("0.7_Joint_slider").value = 1.157;
+
+	triggerChanges();
+}
+
+function handPosture_3() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 0;
+	document.getElementById("2.3_Joint_slider").value = 0;
+	document.getElementById("2.5_Joint_slider").value = 0;
+
+	document.getElementById("3.1_Joint_slider").value = 0;
+	document.getElementById("3.3_Joint_slider").value = 0;
+	document.getElementById("3.5_Joint_slider").value = 0;
+
+	document.getElementById("4.1_Joint_slider").value = 1.183;
+	document.getElementById("4.3_Joint_slider").value = 1.183;
+	document.getElementById("4.5_Joint_slider").value = 1.183;
+
+	document.getElementById("0.1_Joint_slider").value = 1.04;
+
+	document.getElementById("0.3_Joint_slider").value = 1.157;
+	document.getElementById("0.5_Joint_slider").value = 1.157;
+	document.getElementById("0.7_Joint_slider").value = 1.157;
+
+	triggerChanges();
+}
+
+function handPosture_4() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 0;
+	document.getElementById("2.3_Joint_slider").value = 0;
+	document.getElementById("2.5_Joint_slider").value = 0;
+
+	document.getElementById("3.1_Joint_slider").value = 0;
+	document.getElementById("3.3_Joint_slider").value = 0;
+	document.getElementById("3.5_Joint_slider").value = 0;
+
+	document.getElementById("4.1_Joint_slider").value = 0;
+	document.getElementById("4.3_Joint_slider").value = 0;
+	document.getElementById("4.5_Joint_slider").value = 0;
+
+	document.getElementById("0.1_Joint_slider").value = 1.04;
+
+	document.getElementById("0.3_Joint_slider").value = 1.157;
+	document.getElementById("0.5_Joint_slider").value = 1.157;
+	document.getElementById("0.7_Joint_slider").value = 1.157;
+
+	triggerChanges();
+}
+
+function handPosture_5() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 0;
+	document.getElementById("2.3_Joint_slider").value = 0;
+	document.getElementById("2.5_Joint_slider").value = 0;
+
+	document.getElementById("3.1_Joint_slider").value = 0;
+	document.getElementById("3.3_Joint_slider").value = 0;
+	document.getElementById("3.5_Joint_slider").value = 0;
+
+	document.getElementById("4.1_Joint_slider").value = 0;
+	document.getElementById("4.3_Joint_slider").value = 0;
+	document.getElementById("4.5_Joint_slider").value = 0;
+
+	document.getElementById("0.1_Joint_slider").value = 0;
+
+	document.getElementById("0.3_Joint_slider").value = 0;
+	document.getElementById("0.5_Joint_slider").value = 0;
+	document.getElementById("0.7_Joint_slider").value = 0;
+
+	triggerChanges();
+}
+
+function handPosture_6() {
+	document.getElementById("1.1joint_slider").value = 1.131;
+	document.getElementById("1.3joint_slider").value = 1.131;
+	document.getElementById("1.5joint_slider").value = 1.131;
+
+	document.getElementById("2.1_Joint_slider").value = 1.118;
+	document.getElementById("2.3_Joint_slider").value = 1.118;
+	document.getElementById("2.5_Joint_slider").value = 1.118;
+
+	document.getElementById("3.1_Joint_slider").value = 1.131;
+	document.getElementById("3.3_Joint_slider").value = 1.131;
+	document.getElementById("3.5_Joint_slider").value = 1.131;
+
+	document.getElementById("4.1_Joint_slider").value = 0;
+	document.getElementById("4.3_Joint_slider").value = 0;
+	document.getElementById("4.5_Joint_slider").value = 0;
+
+	document.getElementById("0.1_Joint_slider").value = 0;
+
+	document.getElementById("0.3_Joint_slider").value = 0;
+	document.getElementById("0.5_Joint_slider").value = 0;
+	document.getElementById("0.7_Joint_slider").value = 0;
+
+	triggerChanges();
+}
+
+function handPosture_rock() {
+	document.getElementById("1.1joint_slider").value = 0;
+	document.getElementById("1.3joint_slider").value = 0;
+	document.getElementById("1.5joint_slider").value = 0;
+
+	document.getElementById("2.1_Joint_slider").value = 1.118;
+	document.getElementById("2.3_Joint_slider").value = 1.118;
+	document.getElementById("2.5_Joint_slider").value = 1.118;
+
+	document.getElementById("3.1_Joint_slider").value = 1.131;
+	document.getElementById("3.3_Joint_slider").value = 1.131;
+	document.getElementById("3.5_Joint_slider").value = 1.131;
+
+	document.getElementById("4.1_Joint_slider").value = 0;
+	document.getElementById("4.3_Joint_slider").value = 0;
+	document.getElementById("4.5_Joint_slider").value = 0;
+
+	document.getElementById("0.1_Joint_slider").value = 0;
+
+	document.getElementById("0.3_Joint_slider").value = 0;
+	document.getElementById("0.5_Joint_slider").value = 0;
+	document.getElementById("0.7_Joint_slider").value = 0;
+
+	triggerChanges();
+}
+
+function handPosture_ok() {
+	document.getElementById("1.1joint_slider").value = 0.884;
+	document.getElementById("1.3joint_slider").value = 0.884;
+	document.getElementById("1.5joint_slider").value = 0.884;
+
+	document.getElementById("2.1_Joint_slider").value = 1.118;
+	document.getElementById("2.3_Joint_slider").value = 1.118;
+	document.getElementById("2.5_Joint_slider").value = 1.118;
+
+	document.getElementById("3.1_Joint_slider").value = 1.131;
+	document.getElementById("3.3_Joint_slider").value = 1.131;
+	document.getElementById("3.5_Joint_slider").value = 1.131;
+
+	document.getElementById("4.1_Joint_slider").value = 0;
+	document.getElementById("4.3_Joint_slider").value = 0;
+	document.getElementById("4.5_Joint_slider").value = 0;
+
+	document.getElementById("0.1_Joint_slider").value = 1.079;
+
+	document.getElementById("0.3_Joint_slider").value = 0.949;
+	document.getElementById("0.5_Joint_slider").value = 0.949;
+	document.getElementById("0.7_Joint_slider").value = 0.949;
+
+	triggerChanges();
+}
+
+function triggerChanges() {
+	$('#1\\.1joint_slider').trigger('change');
+	$('#2\\.1_Joint_slider').trigger('change');
+	$('#3\\.1_Joint_slider').trigger('change');
+	$('#4\\.1_Joint_slider').trigger('change');
+	$('#0\\.1_Joint_slider').trigger('change');
+	$('#0\\.3_Joint_slider').trigger('change');
+}
