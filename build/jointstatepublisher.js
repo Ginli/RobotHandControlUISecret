@@ -82,9 +82,9 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
   
                 var minval, maxval;
                 var limit = node.getElementsByTagName('limit')[0];
-                minval = parseFloat(limit.getAttribute('lower'));
+                minval = 0;
                 maxval = parseFloat(limit.getAttribute('upper'));
-                var val = (maxval + minval) / 2;
+                var val = minval;
                 var name = node.getAttribute('name');
 
                 if (name.startsWith('prox_') || name.startsWith('base_thumb')) {
@@ -110,7 +110,7 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
                 x.setAttribute('type', 'range');
                 x.setAttribute('min', minval);
                 x.setAttribute('max', maxval);
-                x.setAttribute('step', (maxval - minval) / 100);
+                x.setAttribute('step', 0.0001);
                 x.setAttribute('style', 'width: 100%');
                 x.setAttribute('value', val);
                 x.onchange = updateInput;

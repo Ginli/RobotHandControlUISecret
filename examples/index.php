@@ -149,6 +149,36 @@
           </div>
         </div>
       </div>
+      <div id="row-4" class="row">
+        <div class="col-md-12 window">
+          <h2 class="detail-title">LeapMotion控制</h2>
+          <div id="leap-status">Stopped</div>
+          <div><button type="button" class="btn btn-outline-success" onclick="startLeapControl()">开始控制</button></div>
+          <div><button type="button" class="btn btn-outline-danger" onclick="stopLeapControl()">停止控制</button></div>
+          <div>
+            <table class="table table-hover">
+              <tr>
+                <th></th>
+                <th>大拇指1</th>
+                <th>大拇指2</th>
+                <th>食指</th>
+                <th>中指</th>
+                <th>无名指</th>
+                <th>小指</th>
+              </tr>
+              <tr id="joint-val-from-leap">
+                <td>Leapmotion手关节数据</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
 	</div>
   <div class="footer">
     <div>本站归肖梓轩所有。Copyright 2019-2020</div>
@@ -166,6 +196,8 @@
 <script src="../build/serial_receiver.js"></script>
 <script src="../build/hand_posture.js"></script>
 <script type="text/javascript" src="../jsmpeg/jsmpeg.min.js"></script>
+<script type="text/javascript" src="../build/leap-0.6.4.min.js"></script>
+<script type="text/javascript" src="../build/leapmotion_controller.js"></script>>
 <script>
   /**
    * Setup all visualization elements when the page is loaded.
@@ -232,6 +264,8 @@
     var canvas = document.getElementById('video-canvas');
 		var url = 'ws://'+document.location.hostname+':8082/';
 		var player = new JSMpeg.Player(url, {canvas: canvas});
+
+    runLeapMotion();
 
   });
 
