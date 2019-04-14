@@ -69,11 +69,23 @@ var SerialReceiver = function(options) {
         var values = [];
         message.data.split('$').forEach(function(rawValue) {
             var pair = rawValue.split(',');
-	    if (pair.length != 2) { return values; }
+
+            if (pair.length != 2) {
+            	return values;
+            }
+
             var jointNamePair = pair[0].split(':');
-            if (jointNamePair.length != 2 || jointNamePair[0].trim() != 'name') { return values; }
+
+            if (jointNamePair.length != 2 || jointNamePair[0].trim() != 'name') { 
+            	return values; 
+            }
+
             var jointValuePair = pair[1].split(':');
-            if (jointValuePair.length != 2 || jointValuePair[0].trim() != 'position') { return values; }
+
+            if (jointValuePair.length != 2 || jointValuePair[0].trim() != 'position') { 
+            	return values; 
+            }
+
             values.push({jointName: jointNamePair[1].trim(), jointValue: jointValuePair[1].trim()});
         });
         return values;
@@ -81,10 +93,11 @@ var SerialReceiver = function(options) {
 
     function updateJointTable(jointMessage) {
     	var idx = EXTERNAL_JOINT_ORDER_MAP.get(jointMessage.jointName);
-    	$('#joint-val-from-serial').children()[idx + 1].innerHTML = jointMessage.jointValue;
+    	var angleVal = (jointMessage.jointValue / Math.PI * 180).toFixed(2);
+    	$('#joint-val-from-serial').children()[idx + 1].innerHTML = angleVal;
 
     	var valFromCommand = parseFloat($('#joint-val-from-cmd').children()[idx + 1].innerHTML);
-    	var errorRatePercent = Math.abs(valFromCommand - jointMessage.jointValue) / valFromCommand * 100;
+    	var errorRatePercent = Math.abs(valFromCommand - angleVal) / (valFromCommand + 0.000000001) * 100;
     	$('#error-rate').children()[idx + 1].innerHTML = errorRatePercent.toFixed(3) + '%';
     }
 

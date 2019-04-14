@@ -28,17 +28,16 @@ function runLeapMotion() {
 			if (hand.fingers.length > 0) {
 				var thumb_1_direction = hand.thumb.bones[1].direction();
 				var thumb_2_direction = hand.thumb.bones[2].direction();
-				var thumb_finger_angle = getVec3Angle(thumb_1_direction, thumb_2_direction, 4);
+				var thumb_finger_angle = getVec3Angle(thumb_1_direction, thumb_2_direction);
 
 				var thumb_turn_angle = getVec3Angle(
 					Leap.vec3.fromValues(thumb_1_direction[0], thumb_1_direction[1], 0), 
-					Leap.vec3.fromValues(0, 1, 0), 
-					4);
+					Leap.vec3.fromValues(0, 1, 0));
 
-				var index_angle = getVec3Angle(handDirection, hand.indexFinger.direction, 4);
-				var middle_angle = getVec3Angle(handDirection, hand.middleFinger.direction, 4);
-				var ring_angle = getVec3Angle(handDirection, hand.ringFinger.direction, 4);
-				var pinky_angle = getVec3Angle(handDirection, hand.pinky.direction, 4);
+				var index_angle = getVec3Angle(handDirection, hand.indexFinger.direction);
+				var middle_angle = getVec3Angle(handDirection, hand.middleFinger.direction);
+				var ring_angle = getVec3Angle(handDirection, hand.ringFinger.direction);
+				var pinky_angle = getVec3Angle(handDirection, hand.pinky.direction);
 
 				updateTargetTableCols('joint-val-from-leap', thumb_turn_angle, thumb_finger_angle, index_angle, middle_angle, ring_angle, pinky_angle);
 				updateTargetTableCols('joint-val-from-cmd', thumb_turn_angle, thumb_finger_angle, index_angle, middle_angle, ring_angle, pinky_angle);
@@ -48,10 +47,11 @@ function runLeapMotion() {
 	});
 }
 
-function getVec3Angle(v1, v2, fixedNum) {
+function getVec3Angle(v1, v2) {
 	Leap.vec3.normalize(v1, v1);
 	Leap.vec3.normalize(v2, v2);
-	return Math.acos(Leap.vec3.dot(v1, v2)).toFixed(fixedNum);
+	var arc = Math.acos(Leap.vec3.dot(v1, v2));
+	return Math.round(arc / Math.PI * 180);
 }
 
 function updateTargetTableCols(id, thumb_1, thumb_2, index, middle, ring, pinky) {

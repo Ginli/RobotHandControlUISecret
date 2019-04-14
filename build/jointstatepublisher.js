@@ -56,8 +56,6 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
         if (matchedJointsRegex.test(slider.name)) {
 	    	slider.value = event.target.value;
 	    }
-
-	    console.log(slider.name + ": " + slider.value);
     }
 
     updateJointTable();
@@ -83,7 +81,7 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
                 var minval, maxval;
                 var limit = node.getElementsByTagName('limit')[0];
                 minval = 0;
-                maxval = parseFloat(limit.getAttribute('upper'));
+                maxval = 90;
                 var val = minval;
                 var name = node.getAttribute('name');
 
@@ -110,7 +108,7 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
                 x.setAttribute('type', 'range');
                 x.setAttribute('min', minval);
                 x.setAttribute('max', maxval);
-                x.setAttribute('step', 0.0001);
+                x.setAttribute('step', 1);
                 x.setAttribute('style', 'width: 100%');
                 x.setAttribute('value', val);
                 x.onchange = updateInput;
@@ -144,17 +142,17 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
       topic.publish(js);
   }
 
+  // Publish arc value instead of angle
   function publishAll() {
       var names = [];
       var values = [];
+
       for(var index = 0; index < sliders.length; index++) {
         var slider = sliders[index];
         names[ names.length ] = slider.name;
-        values[ values.length ] = parseFloat(slider.value);
+        values[ values.length ] = parseFloat(slider.value) / 180 * Math.PI;
       }
 
-      console.log(names);
-      console.log(values);
       var js = new ROSLIB.Message({
         name: names, position: values
       });
