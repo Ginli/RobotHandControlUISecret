@@ -56,12 +56,13 @@ function getVec3Angle(v1, v2) {
 
 function updateTargetTableCols(id, thumb_1, thumb_2, index, middle, ring, pinky) {
 	var cols = $('#' + id).children();
-	cols[0].innerHTML = thumb_1;
-	cols[1].innerHTML = thumb_2;
-	cols[2].innerHTML = index;
-	cols[3].innerHTML = middle;
-	cols[4].innerHTML = ring;
-	cols[5].innerHTML = pinky;
+	//First one is name
+	cols[1].innerHTML = thumb_1;
+	cols[2].innerHTML = thumb_2;
+	cols[3].innerHTML = index;
+	cols[4].innerHTML = middle;
+	cols[5].innerHTML = ring;
+	cols[6].innerHTML = pinky;
 }
 
 function updateSliders(thumb_1, thumb_2, index, middle, ring, pinky) {

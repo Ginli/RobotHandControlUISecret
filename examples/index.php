@@ -262,7 +262,79 @@
               <td>误差状态</td><td><span class="dot" id="err-good"></span><span>正常</span></td><td><span class="dot" id="err-bad"></span><span>异常</span></td>
             </tr>
           </table>
-          <span>报警时间</span><input type="text" value="2019-04-12 10:00:00 UTC"></input>
+          <span>报警时间</span><input type="text" value="2019-04-12 10:00:00 UTC">
+        </div>
+      </div>
+    </div>
+    <div class="container toggle-section window" id="doc-section">
+      <h1 class="detail-title title-1">用户资料中心</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary">上传文件</button><span>待上传文件：</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="detail-title">用户文件列表</h2>
+          <button type="button" class="btn btn-outline-info" stype="float: left;" disabled>上一页</button>
+          <button type="button" class="btn btn-outline-info" stype="float: right;" disabled>下一页</button>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">SHU_Hand参数.pdf</a>
+            <a href="#" class="list-group-item list-group-item-action">历史报警数据.txt</a>
+            <a href="#" class="list-group-item list-group-item-action">Leapmotion使用手册.pdf</a>
+            <a href="#" class="list-group-item list-group-item-action">基于Web的移动机器人控制系统研究与实现_吴艮霞.pdf</a>
+          </div>
+          <button type="button" class="btn btn-outline-info" stype="float: left;" disabled>上一页</button>
+          <button type="button" class="btn btn-outline-info" stype="float: right;" disabled>下一页</button>
+        </div>
+      </div>
+    </div>
+    <div class="container toggle-section window" id="user-center-section">
+      <h1 class="detail-title title-1">个人中心</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-hover">
+              <tr>
+                <td>真实姓名</td>
+                <td>肖梓轩</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>用户名</td>
+                <td>xiaozixuan</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>密码</td>
+                <td>**********</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>学校</td>
+                <td>上海大学</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>学号</td>
+                <td>111111111111</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>个人邮箱</td>
+                <td>example@163.com</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>现住址</td>
+                <td>上海市宝山区上大路99号上海大学</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+              <tr>
+                <td>联系方式</td>
+                <td>18866666666</td>
+                <td><a href="#">修改</a></td>
+              </tr>
+            </table>
         </div>
       </div>
     </div>
@@ -286,6 +358,7 @@
 <script type="text/javascript" src="../jsmpeg/jsmpeg.min.js"></script>
 <script type="text/javascript" src="../build/leap-0.6.4.min.js"></script>
 <script type="text/javascript" src="../build/leapmotion_controller.js"></script>
+<script src="../build/babel.min.js"></script> <!--JSX framework -->
 <script>
   /**
    * Setup all visualization elements when the page is loaded.
@@ -369,6 +442,12 @@
           break;
         case 'controller-option':
           $('#controller-section').show();
+          break;
+        case 'document-option':
+          $('#doc-section').show();
+          break;
+        case 'user-option':
+          $('#user-center-section').show();
           break;
         default:
           $('.toggle-section').hide();
