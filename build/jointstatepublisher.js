@@ -73,7 +73,7 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
     var robotXml = xmlDoc.evaluate('//robot', xmlDoc, null, XPATH_FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     var c = 0;
     var container = document.getElementById('sliders');
-    container.setAttribute('style', 'font-size: 26px');
+    container.setAttribute('style', 'font-size: 20px; font-weight: bold');
 
     for (var nodes = robotXml.childNodes, i = 0; i < nodes.length; i++) {
         var node = nodes[i];

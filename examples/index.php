@@ -103,6 +103,10 @@
     font-size: 20px;
   }
 
+  #hand-posture table {
+    width: 100%;
+  }
+
   #hand-posture th,td {
     padding: 15px;
   }
