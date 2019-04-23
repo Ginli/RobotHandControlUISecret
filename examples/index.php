@@ -99,6 +99,14 @@
     background-color: #eedeb7;
   }
 
+  #controller-section button {
+    font-size: 20px;
+  }
+
+  #hand-posture th,td {
+    padding: 15px;
+  }
+
   @media (max-width: 992px) {
     .col-md-4 {
       -ms-flex: unset;
@@ -110,7 +118,7 @@
 </head>
 
 <body style="background-color: #e3f2fd">
-	<nav id="ui-header">上海大学机械手控制系统</nav>
+	<nav id="ui-header">SHU Hand遥操作界面</nav>
   <p id="ros-connect-info"></p>
   <nav class="navbar navbar-expand-lg navbar-light" style="padding: 0 1rem">
     <div class="container">
@@ -123,7 +131,7 @@
             <a class="nav-link" href="#" id="controller-option"><img src="../svg/command.svg" alt="command icon" class="menu-icon">控制中心</a>
           </li>
           <li class="nav-item padd">
-            <a class="nav-link" href="#" id="document-option"><img src="../svg/document.svg" alt="document icon" class="menu-icon">资料专区</a>
+            <a class="nav-link" href="#" id="document-option"><img src="../svg/document.svg" alt="document icon" class="menu-icon">资料中心</a>
           </li>
           <li class="nav-item padd">
             <a class="nav-link" href="#" id="user-option"><img src="../svg/person.svg" alt="user-center icon" class="menu-icon">个人中心</a>
@@ -149,29 +157,33 @@
     </div>
     <div class="container-fluid toggle-section window" id="controller-section">
       <br>
-      <h1 class="detail-title title-1">机械手控制中心</h1>
+      <h1 class="detail-title title-1">控制区</h1>
       <div id="row-1" class="row">
         <div class="col-md-4 window">
-          <h2 class="detail-title">机械手关节控制</h2>
+          <h2 class="detail-title">关节滑块控制</h2>
           <div id="sliders"></div>
         </div>
         <div id="hand-posture" class="col-md-4 window">
-          <h2 class="detail-title">手势按钮</h2>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_1()">手势“一”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_2()">手势“二”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_3()">手势“三”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_4()">手势“四”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_5()">手势“五”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_6()">手势“六”</button>
-          <button type="button" class="btn btn-outline-success" onclick="handPosture_ok()">手势“OK”</button>
+          <h2 class="detail-title">手势按钮控制</h2>
+          <table>
+            <tr>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_1()">手势“一”</button></td>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_2()">手势“二”</button></td>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_3()">手势“三”</button></td>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_4()">手势“四”</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_5()">手势“五”</button></td>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_6()">手势“六”</button></td>
+              <td><button type="button" class="btn btn-outline-success" onclick="handPosture_ok()">手势“OK”</button></td>
+              <td><button type="button" class="btn btn-outline-success">手势“棒”</td>
+            </tr>
+          </table>
         </div>
-        <div class="col-md-4 window">
+        <div class="col-md-4 window" style="text-align: center">
           <h2 class="detail-title">LeapMotion控制</h2>
-          <div id="leap-status">Stopped</div>
-          <div><button type="button" class="btn btn-outline-success" onclick="startLeapControl()">开始控制</button></div>
-          <div><button type="button" class="btn btn-outline-danger" onclick="stopLeapControl()">停止控制</button></div>
           <div>
-            <table class="table table-hover">
+            <table class="table table-hover" style="font-size: 20px">
               <tr>
                 <th></th>
                 <th>大拇指1</th>
@@ -182,7 +194,7 @@
                 <th>小指</th>
               </tr>
               <tr id="joint-val-from-leap">
-                <td>Leapmotion手关节数据</td>
+                <td>Leap<br>Motion<br>数据</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -192,22 +204,27 @@
               </tr>
             </table>
           </div>
+          <div id="leap-status">Stopped</div>
+          <div>
+            <button type="button" class="btn btn-outline-primary" onclick="startLeapControl()">开始控制</button>
+            <button type="button" class="btn btn-outline-danger" onclick="stopLeapControl()">停止控制</button>
+          </div>
         </div>
       </div>
-      <h1 class="detail-title title-1">机械手监控中心</h1>
+      <h1 class="detail-title title-1">监控区</h1>
       <div class="row">
         <div class="col-md-4">
-          <h2 class="detail-title">实时监控</h2>
+          <h2 class="detail-title">实时视频监控</h2>
           <canvas id="video-canvas"></canvas>
         </div>
         <div class="col-md-4">
-          <h2 class="detail-title">机械手模型</h2>
+          <h2 class="detail-title">3D仿真模型</h2>
           <div id="urdf"></div>
         </div>
         <div class="col-md-4">
-          <h2 class="detail-title">机械手关节数据显示</h2>
+          <h2 class="detail-title">关节数据显示</h2>
           <div id="serial-receive">
-            <table class="table table-hover">
+            <table class="table table-hover" style="font-size: 20px">
               <tr>
                 <th></th>
                 <th>大拇指1</th>
@@ -218,7 +235,7 @@
                 <th>小指</th>
               </tr>
               <tr id="joint-val-from-cmd">
-                <td>命令数据</td>
+                <td>命令</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -227,7 +244,7 @@
                 <td></td>
               </tr>
               <tr id="joint-val-from-serial">
-                <td>传感器实时数据</td>
+                <td>传感器</td>
                 <td>0</td>
                 <td>0</td>
                 <td>0</td>
@@ -236,7 +253,7 @@
                 <td>0</td>
               </tr>
               <tr id="error-rate">
-                <td>误差率</td>
+                <td>误差</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -248,7 +265,7 @@
           </div>
         </div>
       </div>
-      <h1 class="detail-title title-1">故障诊断与报警中心</h1>
+      <h1 class="detail-title title-1">故障警报区</h1>
       <div class="row">
         <div class="col-md-12">
           <table class="table" style="font-size: large;">
@@ -261,8 +278,22 @@
             <tr class="table-info">
               <td>误差状态</td><td><span class="dot" id="err-good"></span><span>正常</span></td><td><span class="dot" id="err-bad"></span><span>异常</span></td>
             </tr>
+            <tr class="table-info">
+              <td><span>报警时间</span><input type="text" value=""></td><td></td><td></td>
+            </tr>
           </table>
-          <span>报警时间</span><input type="text" value="2019-04-12 10:00:00 UTC">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputPassword1">密码</label><input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入二次验证密码">
+	            <small class="form-text text-muted">请妥善保管二次验证密码。我们不会向任何人透漏您的密码。</small>
+            </div>
+            <button type="submit" class="btn btn-success">登录</button>
+            <button type="submit" class="btn btn-success">取消</button>
+          </form>
         </div>
       </div>
     </div>
@@ -271,6 +302,7 @@
       <div class="row">
         <div class="col-md-12">
           <button type="button" class="btn btn-primary">上传文件</button><span>待上传文件：</span>
+          <button type="button" class="btn btn-info" style="float: right">下载机械手最近1小时关节数据</button>
         </div>
       </div>
       <div class="row">
@@ -280,9 +312,8 @@
           <button type="button" class="btn btn-outline-info" stype="float: right;" disabled>下一页</button>
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action">SHU_Hand参数.pdf</a>
-            <a href="#" class="list-group-item list-group-item-action">历史报警数据.txt</a>
             <a href="#" class="list-group-item list-group-item-action">Leapmotion使用手册.pdf</a>
-            <a href="#" class="list-group-item list-group-item-action">基于Web的移动机器人控制系统研究与实现_吴艮霞.pdf</a>
+            <a href="#" class="list-group-item list-group-item-action">基于Web的移动机器人控制系统研究与实现.pdf</a>
           </div>
           <button type="button" class="btn btn-outline-info" stype="float: left;" disabled>上一页</button>
           <button type="button" class="btn btn-outline-info" stype="float: right;" disabled>下一页</button>

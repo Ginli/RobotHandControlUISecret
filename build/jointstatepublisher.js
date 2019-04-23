@@ -3,12 +3,12 @@ var JOINTSTATEPUBLISHER = JOINTSTATEPUBLISHER || {
 };
 
 var INTERNAL_EXTERNAL_JOINT_MAP = new Map([
-	['base_thumb', 'thumb_finger_1'],
-	['prox_thumb', 'thumb_finger_2'],
-	['prox_finger_1', 'index_finger'],
-	['prox_finger_2', 'middle_finger'],
-	['prox_finger_3', 'ring_finger'],
-	['prox_finger_4', 'pinky_finger']
+	['base_thumb', '大拇指1'],
+	['prox_thumb', '大拇指2'],
+	['prox_finger_1', '食指'],
+	['prox_finger_2', '中指'],
+	['prox_finger_3', '无名指'],
+	['prox_finger_4', '小指']
 ]);
 
 /** Replicating the joint_state_publisher node's functionality in the browser 
@@ -73,6 +73,8 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
     var robotXml = xmlDoc.evaluate('//robot', xmlDoc, null, XPATH_FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     var c = 0;
     var container = document.getElementById('sliders');
+    container.setAttribute('style', 'font-size: 26px');
+
     for (var nodes = robotXml.childNodes, i = 0; i < nodes.length; i++) {
         var node = nodes[i];
         if(node.tagName==='joint'){
@@ -92,14 +94,12 @@ JOINTSTATEPUBLISHER.JointStatePublisher = function(options) {
                 var x = document.createElement('input');
                 x.setAttribute('name', name + '_text');
                 x.setAttribute('id', name + '_text');
-                x.setAttribute('style', 'float: right');
+                x.setAttribute('style', 'width: 120px; float: right');
   		        x.setAttribute('value', val);
                 container.appendChild(x);
 
                 if (!name.startsWith('prox_') && !name.startsWith('base_thumb')) {
   		        	x.style.display = 'none';
-  		    	} else {
-  		    		container.appendChild( document.createElement('br') );
   		    	}
                 
                 x = document.createElement('input');
