@@ -111,6 +111,14 @@
     padding: 15px;
   }
 
+  #video-canvas {
+    /*webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);*/
+  }
+
   @media (max-width: 992px) {
     .col-md-4 {
       -ms-flex: unset;
